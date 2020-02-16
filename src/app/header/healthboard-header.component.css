@@ -1,0 +1,9 @@
+.invalid {
+    border-bottom: 1px solid #FF6153 !important;
+}
+
+.error-message {
+    border-bottom: 0 !important;
+    color: #FF6153 !important;
+    font-size: 14px;
+}

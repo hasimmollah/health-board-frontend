@@ -1,0 +1,158 @@
+<!--HEADER-->
+<div class="header">
+  <div class="bg-color">
+    <healthboard-header></healthboard-header>
+
+    <div class="wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="banner-info text-center wow fadeIn delay-05s">
+            <!-- <h1 class="bnr-title">We are at ba<span>ker</span></h1> -->
+            <h2 class="bnr-sub-title"> </h2>
+            <p class="bnr-para"></p>
+            
+            <div class="overlay-detail">
+               <p class="bnr-para"></p>
+            </div>
+			<div class="overlay-detail">
+               <p class="bnr-para"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/ HEADER-->
+
+
+<section id="application-details" class="section-padding wow fadeIn delay-05s">
+  <div class="container">
+    <div class="row">
+
+    <div class="col-md-12 admin-content" id="viewApplication">
+      <div class="row">
+        <div class="col-sm-12">
+          <ul class="breadcrumb">
+            
+			<li>Application Details</li>
+            <!--<li class="active">Add User</li>-->
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+       
+		<div class="editForm" >
+          
+          <div class="col-sm-12">
+
+			
+			<div class="form-group">
+			 <div class="row">
+               <label class="col-sm-4 control-label" for="">Name</label>  
+              <div class="col-sm-8">
+                
+				<label for="" class="col-sm-4 control-label">{{application.name}}</label>				
+              </div>
+               
+			   </div>
+            </div>
+			
+			<div class="form-group">
+			 <div class="row">
+               <label class="col-sm-4 control-label" for="">Application Id</label>  
+              <div class="col-sm-8">
+                
+				<label for="" class="col-sm-4 control-label">{{application.appId}}</label>				
+              </div>
+               
+			   </div>
+            </div>
+			<div class="form-group">
+			 <div class="row">
+               <label class="col-sm-4 control-label" for="">Application Url</label>  
+              <div class="col-sm-8">
+                <label for="" class="col-sm-4 control-label">{{application.url}}</label> 
+              </div>
+               
+			   </div>
+            </div>
+			<div class="form-group">
+			 <div class="row">
+               <label class="col-sm-4 control-label" for="">Application Lab</label>  
+              <div class="col-sm-8">
+                <label for="" class="col-sm-4 control-label">{{application.lab}}</label> 
+              </div>
+               
+			   </div>
+            </div>
+			<div class="form-group">
+			 <div class="row">
+               <label class="col-sm-4 control-label" for="">Application Environment {{application.environment}}</label>  
+              <div class="col-sm-8">
+                <label for="" class="col-sm-4 control-label">{{application.environment}}</label> 
+              </div>
+               
+			   </div>
+            </div>					
+			
+			<div class="form-group">
+			 <div class="row">
+               <label class="col-sm-4 control-label" for="">Last Active On</label>  
+              <div class="col-sm-8">
+                <label for="" class="col-sm-4 control-label">{{application.lastAlive}}</label> 
+              </div>
+               
+			   </div>
+            </div>
+			
+			<div class="form-group">
+			 <div class="row">
+               <label class="col-sm-4 control-label" for="">Down Since</label>  
+              <div class="col-sm-8">
+                <label for="" class="col-sm-4 control-label">{{application.downSince}}</label> 
+              </div>
+               
+			   </div>
+            </div>
+
+			<div class="form-group">
+			 <div class="row">
+               <label class="col-sm-4 control-label" for="">Application Health  </label>  
+              <div class="col-sm-8">
+                <div class="img" *ngIf="application.appStatus"><img src="assets/img/happy.png" alt="application.name"></div>
+		  <div class="img" *ngIf="!application.appStatus"><img src="assets/img/sad-face.png" alt="application.name"></div>
+          
+              </div>
+               
+			   </div>
+            </div>
+			
+			</div>
+			
+		
+			
+			 
+		  
+		  
+		
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+<!---->
+<!---->
+<!---->
+<!--HEADER-->
+<div class="header">
+  <div class="bg-color">
+    <healthboard-header></healthboard-header>
+
+   
+  </div>
+</div>
+<!--/ HEADER-->

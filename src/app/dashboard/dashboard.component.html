@@ -1,0 +1,81 @@
+<!--HEADER-->
+<div class="header">
+  <div class="bg-color">
+    <healthboard-header></healthboard-header>
+
+    <div class="wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="banner-info text-center wow fadeIn delay-05s">
+            <!-- <h1 class="bnr-title">We are at ba<span>ker</span></h1> -->
+            <h2 class="bnr-sub-title"> </h2>
+            <p class="bnr-para"></p>
+            
+            <div class="overlay-detail">
+               <p class="bnr-para"></p>
+            </div>
+			<div class="overlay-detail">
+               <p class="bnr-para"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/ HEADER-->
+
+<section id="application-details" class="section-padding wow fadeIn delay-05s">
+  <div class="container">
+    <div class="row">
+
+    <div class="col-md-12 admin-content" id="viewApplication">
+      <div class="row">
+        <div class="col-sm-12 control-label">
+          <ul class="breadcrumb">
+            
+			<li>Application Health Board</li>
+            <!--<li class="active">Add User</li>-->
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+       
+		<div class="editForm" >
+          
+          <div class="col-sm-12">
+			<div class="row" >
+			  <div *ngFor="let item of applications">
+				<div class="col-md-2 col-sm-4 col-xs-8">
+					<div class="service-item text-center">
+			
+					<div  [routerLink]="['/view-application', item.appId]" class="img" *ngIf="item.appStatus"><img src="assets/img/happy.png" alt="{{item.name}}"></div>
+					<div class="img" [routerLink]="['/view-application', item.appId]" *ngIf="!item.appStatus"><img src="assets/img/sad-face.png" alt="{{item.name}}"></div>
+					
+					<label class="col-sm-12 control-label" for="">{{item.name}}</label>
+					</div>
+				</div>
+			  </div>
+				<label class="col-sm-12 control-label" for="">{{currVal}}</label>
+			</div>
+			
+		  </div>
+			
+		
+			
+			 
+		  
+		  
+		
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+<!---->
+<!---->
+
+<!---->
+<!---->
+<!---->

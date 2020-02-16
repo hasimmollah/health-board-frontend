@@ -1,0 +1,111 @@
+<!--HEADER-->
+<div class="header">
+  <div class="bg-color">
+    <healthboard-header></healthboard-header>
+
+    <div class="wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="banner-info text-center wow fadeIn delay-05s">
+            <!-- <h1 class="bnr-title">We are at ba<span>ker</span></h1> -->
+            <h2 class="bnr-sub-title"> </h2>
+            <p class="bnr-para"></p>
+            
+            <div class="overlay-detail">
+               <p class="bnr-para"></p>
+            </div>
+			<div class="overlay-detail">
+               <p class="bnr-para"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/ HEADER-->
+
+<section id="application-details" class="section-padding wow fadeIn delay-05s">
+  <div class="container">
+    <div class="row">
+
+    <div class="col-md-12 admin-content" id="viewApplication">
+      <div class="row">
+        <div class="col-sm-12 control-label">
+          <ul class="breadcrumb">
+            
+			<li>DashBoard</li>
+            <!--<li class="active">Add User</li>-->
+          </ul>
+        </div>
+      </div>
+      
+    </div>
+	
+	<div class="rTable " >
+		<div  class="rTableRow" *ngIf="applicationDataResponse!=null">
+			<div  class="rTableCell">
+				<div class="rTable ">
+					<div  class="rTableRow" *ngFor= "let applicationDataResponseItem of applicationDataResponse; let envIndex=index">
+						<div  class="rTableCell" >
+							<div class="rTable ">
+								<div  class="rTableHead">
+									<div  class="rTableCell" (click)="showhide('environment' + envIndex)">
+										{{applicationDataResponseItem.environment}}
+									</div>
+								</div>
+								<div  class="rTableRow" id="{{ 'environment' + envIndex }}">
+									<div  class="rTableCell" >
+										<div class="rTable ">
+											<div  class="rTableRow" *ngFor= "let applicationDataInformationIteam of applicationDataResponseItem.applicationDataInformationList; let labIndex=index">
+												<div  class="rTableCell" >
+													<div class="rTable ">
+														<div  class="rTableRow">
+															<div  class="rTableCell" (click)="showhide(applicationDataResponseItem.environment+applicationDataInformationIteam.lab + labIndex)">
+																{{applicationDataInformationIteam.lab}}
+															</div>
+														</div>
+														<div  class="rTableRow" id="{{ applicationDataResponseItem.environment+applicationDataInformationIteam.lab + labIndex }}">
+															<div  class="rTableCell" >
+																 <div *ngFor="let applicationData of applicationDataInformationIteam.applicationDataList">
+																	<div class="col-md-2 col-sm-4 col-xs-8">
+																		<div class="service-applicationData text-center">
+																
+																		<div  [routerLink]="['/view-application', applicationData.appId]" class="img" *ngIf="applicationData.appStatus"><img src="assets/img/happy.png" alt="{{applicationData.name}}"></div>
+																		<div class="img" [routerLink]="['/view-application', applicationData.appId]" *ngIf="!applicationData.appStatus"><img src="assets/img/sad-face.png" alt="{{applicationData.name}}"></div>
+																		
+																		<label class="col-sm-12 control-label" for="">{{applicationData.name}}</label>
+																		</div>
+																	</div>
+																  </div>
+																
+																
+															</div>
+														</div>
+													</div>
+													
+													
+												</div>
+											</div>
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+				
+	</div>
+	
+  </div>
+  </div>
+</section>
+<!---->
+<!---->
+
+<!---->
+<!---->
+<!---->
