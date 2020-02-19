@@ -12,10 +12,12 @@ import { HealthBoardHeaderComponent } from './header/healthboard-header.componen
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ApplicationComponent } from './application/application.component';
 import { HealthboardComponent } from './healthboard/healthboard.component';
+import { HomeComponent } from './home/home.component';
 
 import { HealthBoardService } from './healthboard/healthboard.service';
 
 import { ApplicationService } from './_services/index';
+
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { ApplicationService } from './_services/index';
 	HealthBoardHeaderComponent,
 	DashboardComponent,
 	ApplicationComponent,
-	HealthboardComponent
+	HealthboardComponent,
+	HomeComponent
   ],
   imports: [
     BrowserModule,

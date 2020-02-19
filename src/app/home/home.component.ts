@@ -1,66 +1,40 @@
 import { Component, OnInit,OnDestroy } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Application } from '../_models/index';
+import { ApplicationService } from '../_services/index';
 import { Observable, interval, Subscription } from  "rxjs";
-import * as $ from "jquery";
-
-import { ApplicationDataResponse } from './application-data.model';
-import { HealthBoardService } from './healthboard.service';
 import { AppCONFIG } from '../config';
 
 import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
-
+import { ApplicationDataResponse } from '../healthboard/application-data.model';
 
 @Component({
-  selector: 'app-healthboard',
-  templateUrl: './healthboard.component.html',
-  styleUrls: ['./healthboard.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class HealthboardComponent implements OnInit,OnDestroy {
- 
- private _jsonURL = './ApplicationJson.json';
- applicationDataResponse:ApplicationDataResponse[] ;
+export class HomeComponent implements OnInit,OnDestroy {
+ applications:any = [];
+ applicationResponse:Observable<Application[]> ;
  updateSubscription: Subscription;
-  webSocketEndPoint: string = AppCONFIG.SOCKET_ENDPOINT;
-    topic: string = AppCONFIG.SOCKET_TOPIC;
+ currVal:string;
+ applicationDataResponse: ApplicationDataResponse;
+ webSocketEndPoint: string = 'http://localhost:9080/health-board-api/v1.0/health-board-websocket';
+    topic: string = "/topic/greetings";
     stompClient: any;
-
-  constructor(private http: HttpClient, private tHealthBoardService: HealthBoardService) { 
-   
-   
+    
+  constructor(private applicationService: ApplicationService) { 
+  
   }
 
   ngOnInit() {
-	  this.loadApplications();
 	  this.connect();
-	 
   }
-  
-  loadApplications(){
-	  return this
-      .tHealthBoardService
-      .getApplications()
-      .subscribe((data: ApplicationDataResponse[]) => {
-		  console.log(data);
-        this.applicationDataResponse = data;
-    });
-  }
-
-
   ngOnDestroy() {
-	  this.disconnect();
-	if (this.updateSubscription) {
-    this.updateSubscription.unsubscribe();
-  }
-  }
-  showhide(tag){
-	 console.log(tag);
-	 console.log($(tag).html());
-	  $('#'+tag).toggle();
-	 
- }
- 
- connect() {
+  this.disconnect();
+}
+
+connect() {
         console.log("Initialize WebSocket Connection");
         let ws = new SockJS(this.webSocketEndPoint);
         this.stompClient = Stomp.over(ws);
@@ -89,8 +63,8 @@ export class HealthboardComponent implements OnInit,OnDestroy {
 	
 	onMessageReceived(message) {
         console.log("Message Recieved from Server :: " + message.body);
-        this.applicationDataResponse=JSON.parse(message.body);
+        this.currVal = message.body;
+		this.applicationDataResponse=JSON.parse(message.body);
     }
-	
-	
+
 }

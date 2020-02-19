@@ -68,7 +68,7 @@
 														<div  class="rTableRow" id="{{ applicationDataResponseItem.environment+applicationDataInformationIteam.lab + labIndex }}">
 															<div  class="rTableCell" >
 																 <div *ngFor="let applicationData of applicationDataInformationIteam.applicationDataList">
-																	<div class="col-md-2 col-sm-4 col-xs-8">
+																	<div class="col-md-2">
 																		<div class="service-applicationData text-center">
 																
 																		<div  [routerLink]="['/view-application', applicationData.appId]" class="img" *ngIf="applicationData.appStatus"><img src="assets/img/happy.png" alt="{{applicationData.name}}"></div>
