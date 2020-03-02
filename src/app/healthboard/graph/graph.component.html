@@ -1,0 +1,97 @@
+<!--HEADER-->
+<div class="header">
+  <div class="bg-color">
+    <healthboard-header></healthboard-header>
+
+    <div class="wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="banner-info text-center wow fadeIn delay-05s">
+            <!-- <h1 class="bnr-title">We are at ba<span>ker</span></h1> -->
+            <h2 class="bnr-sub-title"> </h2>
+            <p class="bnr-para"></p>
+            
+            <div class="overlay-detail">
+               <p class="bnr-para"></p>
+            </div>
+			<div class="overlay-detail">
+               <p class="bnr-para"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/ HEADER-->
+
+<section id="application-details" class="section-padding wow fadeIn delay-05s">
+  <div class="container">
+    <div class="row">
+
+    <div class="col-md-12 admin-content" id="viewApplication">
+      <div class="row">
+        <div class="col-sm-12 control-label">
+          <ul class="breadcrumb">
+            
+			<li>Application Stats</li>
+            <!--<li class="active">Add User</li>-->
+          </ul>
+        </div>
+      </div>
+      
+    </div>
+	
+	 <div class="col-md-12 admin-content" id="viewApplication">
+      <div class="row">
+	  
+	  <div class="col-md-6">
+		<div class="service-applicationData text-center">
+	
+		<label class="col-sm-12 control-label" for="">Environmentwise stat</label>
+		<div>
+		<canvas baseChart
+								[datasets]="barChartEnvData"
+								[labels]="mbarChartEnvLabels"
+								[options]="barChartOptions"
+								[colors]="barChartColors"
+								[legend]="barChartLegend"
+								[chartType]="barChartType"
+								(chartHover)="chartHovered($event)"
+								(chartClick)="chartClicked($event)"></canvas>
+		</div>
+		
+		</div>
+	  </div>
+	  
+	  <div class="col-md-6">
+		<div class="service-applicationData text-center">
+	
+		<label class="col-sm-12 control-label" for="">Labwise stat</label>
+		<div>
+		<canvas baseChart
+								[datasets]="barChartLabData"
+								[labels]="mbarChartLabLabels"
+								[options]="barChartOptions"
+								[colors]="barChartColors"
+								[legend]="barChartLegend"
+								[chartType]="barChartType"
+								(chartHover)="chartHovered($event)"
+								(chartClick)="chartClicked($event)"></canvas>
+		</div>
+		
+		</div>
+	  </div>
+      </div>
+      
+    </div>
+	
+  </div>
+  </div>
+</section>
+<!---->
+<!---->
+
+<!---->
+<!---->
+<!---->

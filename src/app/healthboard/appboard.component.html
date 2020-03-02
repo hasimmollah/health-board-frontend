@@ -29,45 +29,39 @@
   <div class="container">
     <div class="row">
 
-    <div class="col-md-12 admin-content" id="viewApplication">
+    <div class="col-md-12 admin-content" id="viewDashboard">
       <div class="row">
         <div class="col-sm-12 control-label">
           <ul class="breadcrumb">
             
-			<li>Application Home</li>
+			<li>DashBoard</li>
             <!--<li class="active">Add User</li>-->
           </ul>
         </div>
       </div>
+      
+    </div>
+	
+	
+	
+	 <div class="col-md-12 admin-content" id="viewGraph">
       <div class="row">
-       
-		<div class="editForm" >
-          
-          <div class="col-sm-12">
-			<div class="row" >
-			  
-			  <div class="rTable">
-			  <div  class="rTableRow" *ngFor= "let applicationDataResponseItem of applicationDataResponse; let envIndex=index">
-			  <div  class="rTableCell" >
-			  {{applicationDataResponseItem.environment}}
-			  </div>
-			  </div>
-			  </div>
-				<label class="col-sm-12 control-label" for="">{{currVal}}</label>
-				
-			</div>
-			
-		  </div>
-			
-		
-			
-			 
-		  
-		  
-		
+        <div class="col-sm-12 control-label">
+          <app-graph></app-graph>
         </div>
       </div>
+      
     </div>
+	
+	 <div class="col-md-12 admin-content" id="viewApplication">
+      <div class="row">
+        <div class="col-sm-12 control-label">
+          <app-healthboard></app-healthboard>
+        </div>
+      </div>
+      
+    </div>
+	
   </div>
   </div>
 </section>

@@ -2,10 +2,11 @@ import { Component, OnInit,OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, interval, Subscription } from  "rxjs";
 import * as $ from "jquery";
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
 import { ApplicationDataResponse } from './application-data.model';
 import { HealthBoardService } from './healthboard.service';
-import { AppCONFIG } from '../config';
+import { AppCONFIG } from '../../config';
 
 import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
@@ -24,9 +25,18 @@ export class HealthboardComponent implements OnInit,OnDestroy {
   webSocketEndPoint: string = AppCONFIG.SOCKET_ENDPOINT;
     topic: string = AppCONFIG.SOCKET_TOPIC;
     stompClient: any;
+	mySubscription: any;
 
-  constructor(private http: HttpClient, private tHealthBoardService: HealthBoardService) { 
-   
+  constructor(private http: HttpClient, private tHealthBoardService: HealthBoardService, private router: Router) { 
+   this.router.routeReuseStrategy.shouldReuseRoute = function () {
+  return false;
+};
+this.mySubscription = this.router.events.subscribe((event) => {
+  if (event instanceof NavigationEnd) {
+    // Trick the Router into believing it's last link wasn't previously loaded
+    this.router.navigated = false;
+  }
+});
    
   }
 
@@ -89,7 +99,9 @@ export class HealthboardComponent implements OnInit,OnDestroy {
 	
 	onMessageReceived(message) {
         console.log("Message Recieved from Server :: " + message.body);
+		
         this.applicationDataResponse=JSON.parse(message.body);
+		
     }
 	
 	

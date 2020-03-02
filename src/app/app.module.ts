@@ -11,12 +11,14 @@ import { HealthBoardFooterComponent } from './footer/healthboard-footer.componen
 import { HealthBoardHeaderComponent } from './header/healthboard-header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ApplicationComponent } from './application/application.component';
-import { HealthboardComponent } from './healthboard/healthboard.component';
-import { HomeComponent } from './home/home.component';
+import { HealthboardComponent } from './healthboard/dashboard/healthboard.component';
+import { GraphComponent } from './healthboard/graph/graph.component';
+import { AppboardComponent } from './healthboard/appboard.component';
 
-import { HealthBoardService } from './healthboard/healthboard.service';
+import { HealthBoardService } from './healthboard/dashboard/healthboard.service';
 
 import { ApplicationService } from './_services/index';
+import { ChartsModule } from 'ng2-charts';
 
 
 
@@ -28,14 +30,16 @@ import { ApplicationService } from './_services/index';
 	DashboardComponent,
 	ApplicationComponent,
 	HealthboardComponent,
-	HomeComponent
+	AppboardComponent,
+	GraphComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
 	HttpClientModule,
 	ReactiveFormsModule,
-	StorageServiceModule
+	StorageServiceModule,
+	ChartsModule
   ],
   providers: [
   ApplicationService,HealthBoardService
