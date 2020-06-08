@@ -22,7 +22,7 @@
     "@angular/router": "~8.2.8",
     "@types/jquery": "^3.3.32",
     "chart.js": "^2.7.3",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "net": "^1.0.2",
     "ng2-charts": "^2.3.0",
     "ngx-webstorage-service": "^4.1.0",
